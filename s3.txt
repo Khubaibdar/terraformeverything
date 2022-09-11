@@ -1,0 +1,22 @@
+main
+
+#creating my s3 bucket
+resource "aws_s3_bucket" "ansible_bucket" {
+  bucket = "ansible-project"
+tags = var.my_s3_bucket
+}
+
+
+tfvar.
+
+my_s3_bucket = {
+  Name = "bucket"
+}
+
+variable
+
+ variable "my_s3_bucket" {
+    type = object({
+      name = string
+    })
+   }
