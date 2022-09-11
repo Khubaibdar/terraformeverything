@@ -121,7 +121,7 @@ resource "aws_instance" "ansible_slave" {
   subnet_id = aws_subnet.private.id
   private_ip = element(var.my_private_ip_slaves, count.index)
   vpc_security_group_ids = ["aws_security_group.security.security.id"]
-  key_name = "khubaibkeypair"
+  key_name = "ansible-keypair"
 
 
 tags = {
