@@ -51,7 +51,7 @@ resource "aws_route_table" "my_route" {
 }
 
 resource "aws_route_table" "private_route" {
-  vpc_id = aws_internet_gateway.mygateway.id
+  vpc_id = aws_vpc.imp.id
   
   route {
     cidr_block = "0.0.0.0/0"
@@ -103,7 +103,7 @@ tags = {
 subnet_id = aws_subnet.imp0rtant.id
 private_ip = "10.0.1.10"
 vpc_security_group_ids = [aws_security_group.security.id]
-key_name = "khubaibkeypair"
+key_name = "ansible-keypair"
 
 tags = {
   name = "master_ansible"
@@ -120,7 +120,7 @@ resource "aws_instance" "ansible_slave" {
   availability_zone = var.region
   subnet_id = aws_subnet.private.id
   private_ip = element(var.my_private_ip_slaves, count.index)
-  vpc_security_group_ids = ["aws_security_group.security.security.id"]
+  vpc_security_group_ids = [aws_security_group.security.id]
   key_name = "ansible-keypair"
 
 
@@ -128,5 +128,3 @@ tags = {
   name = "ansible_slave-${count.index+1}"
 }
 }
-
-#addin
