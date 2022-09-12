@@ -1,19 +1,15 @@
 region = "us-east-1a"
 
-my_vpc_name = {
-  Name = "khubi's VPC"
-}
+my_vpc_name = "khubi's VPC"
+
+vpc_tags = "khubi"
 
 my_aws_vpc = "10.0.0.0/16"
 
-subnet_tags = {
-  Name = "khubi's Subnet"
-}
+subnet_tags = "khubi's Subnet"
 
 
-my_subnet = {
-  name = "khubi private subnet"
-}
+my_subnet = "khubi private subnet"
 
 my_aws_subnet = "10.0.1.0/24"
 
